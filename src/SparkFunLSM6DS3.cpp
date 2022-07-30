@@ -576,6 +576,16 @@ status_t LSM6DS3::begin(SensorSettings* pSettingsYouWanted)
 
 //****************************************************************************//
 //
+//  Complete IMU section
+//
+//****************************************************************************//
+status_t LSM6DS3::readRawAll( IMU_raw_t &output )
+{
+	return readRegisterRegion((uint8_t*)&output, LSM6DS3_ACC_GYRO_OUT_TEMP_L, 14);
+}
+
+//****************************************************************************//
+//
 //  Accelerometer section
 //
 //****************************************************************************//

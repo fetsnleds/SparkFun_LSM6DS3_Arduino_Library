@@ -46,6 +46,17 @@ typedef enum
 	//...
 } status_t;
 
+// all raw values 
+typedef struct {
+	int16_t temp;
+	int16_t gyro_x;
+	int16_t gyro_y;
+	int16_t gyro_z;
+	int16_t acc_x;
+	int16_t acc_y;
+	int16_t acc_z;
+} IMU_raw_t;
+
 //This is the core operational class of the driver.
 //  LSM6DS3Core contains only read and write operations towards the IMU.
 //  To use the higher level functions, use the class LSM6DS3 which inherits
@@ -152,6 +163,9 @@ public:
 	//Call to apply SensorSettings
 	status_t begin(SensorSettings* pSettingsYouWanted = NULL);
 
+	//Call to read and output all sensor raw data into a single struct
+	status_t readRawAll(IMU_raw_t &output);
+	
 	//Returns the raw bits from the sensor cast as 16-bit signed integers
 	int16_t readRawAccelX( void );
 	int16_t readRawAccelY( void );
