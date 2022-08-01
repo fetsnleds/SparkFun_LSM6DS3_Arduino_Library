@@ -92,7 +92,6 @@ public:
 	
 	//Change to base page
 	status_t basePage( void );
-  SPISettings mySpiSettings;
 	
 private:
 	
@@ -196,7 +195,6 @@ public:
 	
 	float calcGyro( int16_t );
 	float calcAccel( int16_t );
-
 	
 private:
 
